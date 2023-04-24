@@ -11,9 +11,6 @@ WORKDIR app
 
 COPY src .
 
-RUN apt update\
-&& apt-get install vim -y
-
 RUN npm install
 
 ADD server.js .
