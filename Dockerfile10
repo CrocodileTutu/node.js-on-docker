@@ -1,0 +1,21 @@
+# from base image node
+ARG NODE_VERSION=8.11-slim
+FROM node:$NODE_VERSION
+
+LABEL "about"="This file is just am example to demonstarte the LABEL"
+
+ENV workdirectory /usr/node
+
+WORKDIR $workdirectory
+WORKDIR app
+
+#COPY package-lock.json .
+COPY src .
+
+RUN npm install
+
+ADD server.js .
+
+EXPOSE 3000
+
+ENTRYPOINT ["node", "server.js"]

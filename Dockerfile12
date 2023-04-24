@@ -1,0 +1,30 @@
+# from base image node
+ARG NODE_VERSION=8.11-slim
+FROM node:$NODE_VERSION
+
+LABEL "about"="This file is just am example to demonstarte the LABEL"
+
+ENV user farbod
+ENV workdirectory /home/$user
+
+WORKDIR $workdirectory
+WORKDIR app
+
+#COPY package-lock.json .
+COPY package.json .
+
+RUN npm install
+
+RUN useradd $user
+USER $user
+
+#RUN chown -R $user:$(id -gn $user) /home/$user/.config
+
+ADD server.js .
+
+#RUN ls -l
+
+EXPOSE 3000
+
+# command executable and version
+ENTRYPOINT ["node", "server.js"]
