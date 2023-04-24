@@ -9,8 +9,10 @@ ENV workdirectory /usr/node
 WORKDIR $workdirectory
 WORKDIR app
 
-#COPY package-lock.json .
 COPY src .
+
+RUN apt update\
+&& apt-get install vim -y
 
 RUN npm install
 
