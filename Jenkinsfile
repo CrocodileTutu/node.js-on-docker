@@ -8,7 +8,7 @@ pipeline {
             {
                 script {
                         echo "INFO: Build Stage"
-                        sh "bash build.sh"
+                        app = docker.build("dockerfile12")
                     }
             }
         }
