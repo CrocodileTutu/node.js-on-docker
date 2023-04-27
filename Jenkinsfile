@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        docker {image 'node:8.11-slim'}
+    }
     stages {
 
         stage("Build")
@@ -8,7 +10,6 @@ pipeline {
             {
                 script {
                         echo "INFO: Build Stage"
-                        app = docker.build("dockerfile12")
                     }
             }
         }
@@ -18,7 +19,8 @@ pipeline {
             steps
             {
                 script {
-                            echo "INFO: Test Stage"
+                        echo "INFO: Test Stage"
+                        sh 'node --version'
                     }
             }
         }
