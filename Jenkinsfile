@@ -8,7 +8,7 @@ pipeline {
             {
                 script {
                         echo "INFO: Build Stage"
-                        sh "node install"
+                        sh "docker start dockerfile12"
                     }
             }
         }
