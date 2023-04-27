@@ -13,12 +13,22 @@ pipeline {
             }
         }
 
-        stage("Deploy")
+        stage("Test")
         {
             steps
             {
                 script {
-                            echo "INFO: Deploy Stage"
+                            echo "INFO: Test Stage"
+                    }
+            }
+        }
+
+        stage("Push")
+        {
+            steps
+            {
+                script {
+                            echo "INFO: Push Stage"
                     }
             }
         }
