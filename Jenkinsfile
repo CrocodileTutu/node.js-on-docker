@@ -8,7 +8,7 @@ pipeline {
             {
                 script {
                         echo "INFO: Build Stage"
-                        sh "docker start dockerfile12"
+                        sh "bash build.sh"
                     }
             }
         }
