@@ -1,1 +1,1 @@
-docker start dockerfile12
+bash docker start dockerfile12
